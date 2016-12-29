@@ -1,14 +1,18 @@
 import urllib
 import urllib2
-
+import cfscrape
 
 
 data = {
     "league" : "Breach"
 }
 
-encode = urllib.urlencode(data)
+#encode = urllib.urlencode(data)
 
-html = urllib2.urlopen("http://poe.trade/search",encode)
+scrape = cfscrape.create_scraper() 
 
-print html.readlines()
+#html = urllib.urlopen("http://poe.trade") #urllib2.urlopen("http://poe.trade",encode)
+
+print scrape.get("http://poe.trade").content
+
+
